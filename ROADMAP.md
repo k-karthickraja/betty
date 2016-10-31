@@ -1,6 +1,7 @@
 #Roadmap
 -------
-    - Add the basic compatablity of
+    1. Add the basic implementation of brief.
+    2. Integrate the DayTask ( Todo.txt ) to list/update the task.
 
 #Services
 --------
