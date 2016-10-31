@@ -10,7 +10,8 @@ module Proactive
   def self.interpret(command)
     responses = []
 
-    # Here xox is a shell script to open representation for my timesheet.
+    # To replace the word "the" from command. 
+    command.gsub!(/the/,'')
     if command.match(/^send\stoday(')?(s)?\shc\sreport$/i) or command.match(/send\stoday(')?(s)?\shealth(\s)?check\sreport$/i)
       responses << {
       :call => ProactiveReporter.new,

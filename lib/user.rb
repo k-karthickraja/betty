@@ -1,4 +1,4 @@
-module User  
+module User
   def self.has_command?(command)
     response = `which #{ command }`
     response != ""
@@ -6,14 +6,14 @@ module User
 
   def self.interpret(command)
     responses = []
-    
+
     if command.match(/^who\s+am\si$/i) || command.match(/^what\'?s?(\s+is)?\s+my\s(user)?name\??$/i)
       responses << {
         :command => "whoami",
         :explanation => "Gets your system username."
       }
     end
-    
+
     if command.match(/^who\s+am\si$/i) || command.match(/^what\'?s?(\s+is)?\s+my\s((real|full|actual)\s+)?name\??$/i)
       responses << {
         :command => "finger $(whoami) | sed 's/.*: *//;q'",
@@ -23,7 +23,7 @@ module User
 
     if command.match(/^what\'?s?(\s+is)?(\s+my)?\s?(public|external|internal|private|local)?(\s+ip)?\s?(address)?\??$/i)
       responses << {
-        :command => "ifconfig", 
+        :command => "ifconfig",
         :explanation => "Gets your internal ip address."
         } if not command.match(/(public|external)/)
       responses << {
@@ -31,7 +31,7 @@ module User
         :explanation => "Gets your external ip address."
       } if not command.match(/(internal|private|local)/)
     end
-  
+
     if command.match(/^who\'?s?(\s+else)?(\s+is)?\s(logged|signed|connected)\s+?in\??$/i)
       responses << {
         :command => "who | cut -f 1 -d ' ' | uniq",
@@ -45,11 +45,11 @@ module User
         :explanation => "Shows you your current directory."
       }
     end
-    
-    
+
+
     if command.match(/^what\'?s?(?:\s+is)?(?:\s+(?:the|my))?\s+version(?:\s+of)?(\s[a-zA-Z\-_]+)+\??$/i)
       program = $1.strip
-    
+
       command_to_use = ""
       case program
       when "go"
@@ -61,7 +61,7 @@ module User
       else
         command_to_use = "#{ program } --version"
       end
-      
+
       responses << {
         :command => command_to_use,
         :explanation => "Gets the version of #{ program }."

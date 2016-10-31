@@ -18,8 +18,8 @@ class ProactiveReporter
     report_spreadsheet="#{dirpath}AxisHealthCheck.xls"
 
     from='karthickraja@bksys.co.in'
-    #to='roadmap@bksys.co.in'
-    to='pcteam@bksys.co.in'
+    to='roadmap@bksys.co.in'
+    #to='pcteam@bksys.co.in'
     subject="Axis Servers Overall Healthcheck Report for #{date.strftime('%d/%m/%Y')}"
 
 
