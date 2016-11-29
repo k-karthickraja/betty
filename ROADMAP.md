@@ -18,7 +18,7 @@
   - Read mails form PPM, add those events to my daily plan.
 
 * Proactive
-  - Send the mail for health check.
+  - Send the mail for health check. [ DONE ]
 
 * Alert
   - Should have the mechanism to alert me when any thing wrong.
@@ -50,3 +50,8 @@
 * Brief
   - Brief the today's todo , Events , Any Alerts etc....
   - Days for the projects to be complete. ( Need to find the mechanism for this.)
+
+* Snap
+  - To Take a snap of given project repo, by appending the timestamp. 
+  - Extract the project files. 
+  - Add the security 
