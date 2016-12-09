@@ -5,7 +5,7 @@
 #   * Checking central server health check file status.
 #   * Failure status.
 #
-require_relative 'proactive_reporter.rb'
+require_relative '../helpers/proactive_reporter.rb'
 module Proactive
   def self.interpret(command)
     responses = []

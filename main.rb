@@ -1,11 +1,32 @@
 #!/usr/bin/env ruby
 require 'logger'
 
-$URL = 'https://github.com/pickhardt/betty'
-$VERSION = '0.1.7'
+$URL = 'https://github.com/karthickrajak/wiz'
+$VERSION = '0.1'
 $executors = []
-$LOG = Logger.new(File.open(ENV['HOME'] + '/.betty_history', 'a+'))
+$LOG = Logger.new(File.open(ENV['HOME'] + '/.wiz_history', 'a+'))
 
+
+# Loading Services files. 
+Dir[File.dirname(__FILE__) + '/services/*.rb'].each {|file|
+  begin
+    require file
+  rescue Exception => e
+    puts "Module #{file} could not be loaded because of #{e.message.split('\n')[0]}"
+  end
+}
+
+
+# Loading Helper files. 
+Dir[File.dirname(__FILE__) + '/helpers/*.rb'].each {|file|
+  begin
+      require file
+        rescue Exception => e
+	    puts "Module #{file} could not be loaded because of #{e.message.split('\n')[0]}"
+	      end
+}
+
+# Loading Library files. #REMOVE 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file|
   begin
     require file
